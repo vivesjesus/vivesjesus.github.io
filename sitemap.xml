@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://Manoli22.github.io/bigdata2122/index.html</loc>
-         <lastmod>2021-09-14</lastmod>
+         <loc>https://manoli-iborra.github.io/bigdata2122/index.html</loc>
+         <lastmod>2021-09-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Manoli22.github.io/bigdata2122/apuntes01.html</loc>
-         <lastmod>2021-09-14</lastmod>
+         <loc>https://manoli-iborra.github.io/bigdata2122/apuntes01.html</loc>
+         <lastmod>2021-09-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Manoli22.github.io/bigdata2122/apuntes02.html</loc>
-         <lastmod>2021-09-14</lastmod>
+         <loc>https://manoli-iborra.github.io/bigdata2122/apuntes02.html</loc>
+         <lastmod>2021-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://manoli-iborra.github.io/bigdata2122/apuntes03.html</loc>
+         <lastmod>2021-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://manoli-iborra.github.io/bigdata2122/apuntes04.html</loc>
+         <lastmod>2021-09-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -334,6 +334,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes05.html" class="md-nav__link">
+        6.- RESUMEN
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -432,9 +447,10 @@
 <p>Son datos libremente accesibles y reutilizables, con la única condición de la atribución (mencionar la organización). Tienen unas características legales de licencia, protección de datos, etc.</p>
 <p>Tabla de proveedores de datos abiertos</p>
 <p><img alt="organizaciones" src="imagenes/organizaciones.PNG" /></p>
-<p>El modelo 5 estrellas favorece la reutilización. Este modelo puntua los datos según su nivel de reutilización y acceso.</p>
+<p>En 2010, el experto británico Tim Berners-Lee formuló el modelo 5 estrellas para animar a la sociedad, en particular a los encargados de los datos gubernamentales, a abrir sus bases de datos, pretende favorece la reutilización de los datos. Este modelo puntua los datos según su nivel de reutilización y acceso.</p>
 <p><img alt="imagen" src="imagenes/estrellas.PNG" /></p>
 <p><img alt="imagen" src="imagenes/escalera.PNG" /></p>
+<p><a href="https://datos.gob.es/es/iniciativas" target="_blank" > Datos abiertos del gobierno de España</a></p>
 <h2 id="formato-de-datos_1"><strong>Formato de datos</strong><a class="headerlink" href="#formato-de-datos_1" title="Permanent link">&para;</a></h2>
 <h3 id="csv"><strong>CSV</strong><a class="headerlink" href="#csv" title="Permanent link">&para;</a></h3>
 <p>Comma Separated Values (valores separados por comas). Requiere que cada elemento de nuestro conjunto se presente en una línea. Dentro de esa línea, cada uno de los atributos del elemento debe estar separado por un único separador, que habitualmente es una coma, y seguir siempre el mismo orden. Además, la primera línea del fichero, a la que llamaremos <em>cabecera</em>, no contiene datos de ningún elemento, sino información de los atributos.
@@ -448,8 +464,15 @@ Si el campo contiene alguna coma, utilizaremos un delimitador como por ejemplo "
 <p>JavaScript Object Notation, es un formato muy utilizado hoy en día, tiene el mismo propósito que el XML que es el intercambio de datos pero no utiliza las etiquetas abiertas y cerradas, sino que pretende que pese menos, es decir que ocupe menos espacio.</p>
 <p><img alt="json" src="imagenes/json.PNG" width="300" /></p>
 <h3 id="avro"><strong>Avro</strong><a class="headerlink" href="#avro" title="Permanent link">&para;</a></h3>
-<p>Es un formato de almacenamiento basado en filas para Hadoop. Avro se basa en <strong>esquemas</strong>. Cuando los datos .avro son leídos siempre está presente el esquema con el que han sido escritos.</p>
+<p>Es un formato de almacenamiento basado en filas para Hadoop. Avro se basa en <strong>esquemas</strong>. Cuando los datos .avro son leídos siempre está presente el esquema con el que han sido escritos. Avro utiliza JSON para definir tipos de datos y protocolos. Es el formato utilizado para la serialización de datos ya que es más rápido y ocupa menos espacio que los JSON, la serialización de los datos la hace en un formato binario compacto.</p>
 <h3 id="parquet"><strong>Parquet</strong><a class="headerlink" href="#parquet" title="Permanent link">&para;</a></h3>
+<p>Es un formato de almacenamiento basado en columnas para Hadoop. Fue creado para poder disponer de un formato de compresión y codificación eficiente. 
+El formato Parquet está compuesto por tres piezas:</p>
+<ul>
+<li>Row group: es un conjunto de filas en formato columnar.</li>
+<li>Column chunk: son los datos de una columna en grupo. Se puede leer de manera independiente para mejorar las lecturas.</li>
+<li>Page: es donde finalmente se almacenan los datos, debe ser lo suficientemente grade para que la compresión sea eficiente.</li>
+</ul>
                 
               
               
@@ -483,6 +506,21 @@ Si el campo contiene alguna coma, utilizaremos un delimitador como por ejemplo "
           </div>
         </a>
       
+      
+        
+        <a href="apuntes05.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 6.- RESUMEN" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              6.- RESUMEN
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

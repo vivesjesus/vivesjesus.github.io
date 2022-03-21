@@ -1,0 +1,810 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://manoli-iborra.github.io/bigdata2122/apuntes08.html">
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>3.3. VISUALIZACIÓN DE DATOS - BIG DATA</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visualizacion-de-datos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="BIG DATA" class="md-header__button md-logo" aria-label="BIG DATA" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BIG DATA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.3. VISUALIZACIÓN DE DATOS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="BIG DATA" class="md-nav__button md-logo" aria-label="BIG DATA" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    BIG DATA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        1. INTRODUCCIÓN
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        2. BIG DATA
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="2. BIG DATA" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          2. BIG DATA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes01.html" class="md-nav__link">
+        2.0. BIG DATA
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes02.html" class="md-nav__link">
+        2.1. PERFILES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes03.html" class="md-nav__link">
+        2.2. TIPOS DE DATOS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes04.html" class="md-nav__link">
+        2.3. FORMATO DE DATOS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes05.html" class="md-nav__link">
+        2.4. RESUMEN
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        3. VISUALIZACIÓN DE DATOS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="3. VISUALIZACIÓN DE DATOS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          3. VISUALIZACIÓN DE DATOS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes06.html" class="md-nav__link">
+        3.1. INTRODUCCIÓN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes07.html" class="md-nav__link">
+        3.2. ANÁLISIS EXPLORATORIO DE DATOS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3.3. VISUALIZACIÓN DE DATOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="apuntes08.html" class="md-nav__link md-nav__link--active">
+        3.3. VISUALIZACIÓN DE DATOS
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-de-visualizacion" class="md-nav__link">
+    Herramientas de visualización
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-visualizacion" class="md-nav__link">
+    Tipos de visualización
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de visualización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-barras-bar-chart" class="md-nav__link">
+    * Diagrama de barras (Bar chart)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograma-histogram" class="md-nav__link">
+    * Histograma (Histogram)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograma-vs-diagrama-de-barras" class="md-nav__link">
+    * Histograma vs Diagrama de barras
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-densidad-density-plot" class="md-nav__link">
+    * Diagrama de densidad (Density plot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-lineas-line-chart" class="md-nav__link">
+    * Diagrama de líneas (Line chart)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-dispersion-scatter-plot" class="md-nav__link">
+    * Diagrama de dispersión (Scatter plot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapa-de-calor-heatmap" class="md-nav__link">
+    * Mapa de calor (Heatmap)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-caja-box-plot" class="md-nav__link">
+    * Diagrama de caja (Box plot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-enjambre-swarmplot" class="md-nav__link">
+    * Diagrama de enjambre (swarmplot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-violin-violin-plot" class="md-nav__link">
+    * Diagrama de violín (Violin plot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-arbol-tree-map" class="md-nav__link">
+    * Diagrama de árbol (Tree map)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nube-de-palabras-word-cloud" class="md-nav__link">
+    * Nube de palabras (Word cloud)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-de-visualizacion" class="md-nav__link">
+    Herramientas de visualización
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-visualizacion" class="md-nav__link">
+    Tipos de visualización
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de visualización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-barras-bar-chart" class="md-nav__link">
+    * Diagrama de barras (Bar chart)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograma-histogram" class="md-nav__link">
+    * Histograma (Histogram)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograma-vs-diagrama-de-barras" class="md-nav__link">
+    * Histograma vs Diagrama de barras
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-densidad-density-plot" class="md-nav__link">
+    * Diagrama de densidad (Density plot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-lineas-line-chart" class="md-nav__link">
+    * Diagrama de líneas (Line chart)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-dispersion-scatter-plot" class="md-nav__link">
+    * Diagrama de dispersión (Scatter plot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapa-de-calor-heatmap" class="md-nav__link">
+    * Mapa de calor (Heatmap)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-caja-box-plot" class="md-nav__link">
+    * Diagrama de caja (Box plot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-enjambre-swarmplot" class="md-nav__link">
+    * Diagrama de enjambre (swarmplot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-violin-violin-plot" class="md-nav__link">
+    * Diagrama de violín (Violin plot)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-arbol-tree-map" class="md-nav__link">
+    * Diagrama de árbol (Tree map)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nube-de-palabras-word-cloud" class="md-nav__link">
+    * Nube de palabras (Word cloud)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="visualizacion-de-datos"><strong>VISUALIZACIÓN DE DATOS </strong><a class="headerlink" href="#visualizacion-de-datos" title="Permanent link">&para;</a></h1>
+<p>La visualización de datos permite resaltar sus principales características.
+El análisis estadístico solo se puede llevar a cabo si está bien presentado.
+Hay diferentes formas de presentar los datos:</p>
+<ul>
+<li>
+<p>Textual</p>
+</li>
+<li>
+<p>Tabular</p>
+</li>
+<li>
+<p>Gráfica</p>
+</li>
+</ul>
+<p>La representación gráfica es la manera más atractiva y fácil de entender.</p>
+<h2 id="herramientas-de-visualizacion"><strong><em>Herramientas de visualización</em></strong><a class="headerlink" href="#herramientas-de-visualizacion" title="Permanent link">&para;</a></h2>
+<p><strong>Python</strong> cuenta con numerosas librerías para hacer visualizaciones como Matplotlib, Seaborn, Folium, Bokeh, Plotly, Altair,...</p>
+<p><strong>Matplotlib</strong> es una de las más importantes, permite crear gráficos de calidad en 2D y exporta visualizaciones a los formatos más comunes (PDF, SVG, JPG, PNG, BMP, GIF,...)</p>
+<p><strong>Seaborn</strong> es una interfaz de alto nivel que funciona sobre Matplotlib y la complementa, permite visualizaciones más atractivas y complejas que son estéticamente más agradables.</p>
+<h2 id="tipos-de-visualizacion"><strong><em>Tipos de visualización</em></strong><a class="headerlink" href="#tipos-de-visualizacion" title="Permanent link">&para;</a></h2>
+<p>Existen muchos tipos de diagramas apropiados para diferentes objetivos:</p>
+<ul>
+<li>
+<p>Diagrama de barras (ranking)</p>
+</li>
+<li>
+<p>Histograma (distribución)</p>
+</li>
+<li>
+<p>Diagrama de densidad (distribución)</p>
+</li>
+<li>
+<p>Diagrama de líneas (evolución)</p>
+</li>
+<li>
+<p>Diagrama de dispersión (correlación)</p>
+</li>
+<li>
+<p>Mapa de calor (correlación)</p>
+</li>
+<li>
+<p>Diagrama de caja (distribución y ranking)</p>
+</li>
+<li>
+<p>Diagrama de enjambre (distribución)</p>
+</li>
+<li>
+<p>Diagrama de violín (distribución)</p>
+</li>
+<li>
+<p>Diagrama de árbol (todo-parte)</p>
+</li>
+<li>
+<p>Nube de palabras (ranking)</p>
+</li>
+</ul>
+<h3 id="diagrama-de-barras-bar-chart"><strong>* Diagrama de barras (Bar chart)</strong><a class="headerlink" href="#diagrama-de-barras-bar-chart" title="Permanent link">&para;</a></h3>
+<p>Son útiles para visualizar distribuciones de valores discretos o categoriales. Representa gráficamente la comparación entre categorías de datos.</p>
+<p><img alt="imagen" src="imagenes/diagramas/barras.PNG" /></p>
+<h3 id="histograma-histogram"><strong>* Histograma (Histogram)</strong><a class="headerlink" href="#histograma-histogram" title="Permanent link">&para;</a></h3>
+<p>Es un tipo de gráfico de barras para visualizar distribuciones de valores numéricos. Indica el número de observaciones que caen dentro de un rango de valores (bin)</p>
+<p><img alt="imagen" src="imagenes/diagramas/histograma.PNG" /></p>
+<h3 id="histograma-vs-diagrama-de-barras"><strong>* Histograma vs Diagrama de barras</strong><a class="headerlink" href="#histograma-vs-diagrama-de-barras" title="Permanent link">&para;</a></h3>
+<p><img alt="imagen" src="imagenes/diagramas/barrasvshistograma.PNG" /></p>
+<h3 id="diagrama-de-densidad-density-plot"><strong>* Diagrama de densidad (Density plot)</strong><a class="headerlink" href="#diagrama-de-densidad-density-plot" title="Permanent link">&para;</a></h3>
+<p>Es una variante del histograma que usa un kernel gaussiano para visualizar los valores. Ofrece una mejor visión de la forma de la distribución.</p>
+<p><img alt="imagen" src="imagenes/diagramas/densidad.PNG" /></p>
+<h3 id="diagrama-de-lineas-line-chart"><strong>* Diagrama de líneas (Line chart)</strong><a class="headerlink" href="#diagrama-de-lineas-line-chart" title="Permanent link">&para;</a></h3>
+<p>Es muy útil para visualizar tendencias.Muestra los datos como puntos unidos por líneas.</p>
+<p><img alt="imagen" src="imagenes/diagramas/lineas.PNG" /></p>
+<h3 id="diagrama-de-dispersion-scatter-plot"><strong>* Diagrama de dispersión (Scatter plot)</strong><a class="headerlink" href="#diagrama-de-dispersion-scatter-plot" title="Permanent link">&para;</a></h3>
+<p>Se utilizan para identificar relaciones, patrones o tendencias entre dos valores numéricos. Visualiza agrupaciones de datos, identifica outliers y explora correlaciones.</p>
+<p><img alt="imagen" src="imagenes/diagramas/dispersion.PNG" /></p>
+<p>Dos atributos están correlacionados si uno implica el otro:</p>
+<ul>
+<li>
+<p>Positiva: cuando uno aumenta el otro también.</p>
+</li>
+<li>
+<p>Negativa: cuando uno aumenta el otro disminuye.</p>
+</li>
+<li>
+<p>Neutral: no hay correlación.</p>
+</li>
+</ul>
+<p><img alt="imagen" src="imagenes/diagramas/tiposdispersion.PNG" /></p>
+<p>También podemos encontrar falsas correlaciones:</p>
+<p><img alt="imagen" src="imagenes/diagramas/dispersion2.PNG" /></p>
+<h3 id="mapa-de-calor-heatmap"><strong>* Mapa de calor (Heatmap)</strong><a class="headerlink" href="#mapa-de-calor-heatmap" title="Permanent link">&para;</a></h3>
+<p>Visualizar datos mediante códigos de colores en dos dimensiones. Es útil para correlaciones. El tono y/o la intensidad indica cómo varían los datos en el espacio.</p>
+<p><img alt="imagen" src="imagenes/diagramas/mapacalor.PNG" /></p>
+<h3 id="diagrama-de-caja-box-plot"><strong>* Diagrama de caja (Box plot)</strong><a class="headerlink" href="#diagrama-de-caja-box-plot" title="Permanent link">&para;</a></h3>
+<p>Describe grupos de datos numéricos mediante cuartiles. Es útil para datos que no siguen una distribución normal.</p>
+<p><img alt="imagen" src="imagenes/diagramas/cajas.PNG" /></p>
+<p><img alt="imagen" src="imagenes/diagramas/cajas2.PNG" /></p>
+<h3 id="diagrama-de-enjambre-swarmplot"><strong>* Diagrama de enjambre (swarmplot)</strong><a class="headerlink" href="#diagrama-de-enjambre-swarmplot" title="Permanent link">&para;</a></h3>
+<p>Permite visualizar los puntos directamente cuando tenemos pocas muestras. Se puede usar en combinación con los diagramas de caja para ver el número de muestras.</p>
+<p><img alt="imagen" src="imagenes/diagramas/enjambre.PNG" /></p>
+<h3 id="diagrama-de-violin-violin-plot"><strong>* Diagrama de violín (Violin plot)</strong><a class="headerlink" href="#diagrama-de-violin-violin-plot" title="Permanent link">&para;</a></h3>
+<p>Proporciona la información de un diagrama de caja y además la distribución de valores. Adecuados cuando tenemos muchos valores y no se pueden visualizar individualmente.</p>
+<p><img alt="imagen" src="imagenes/diagramas/violin.PNG" /></p>
+<h3 id="diagrama-de-arbol-tree-map"><strong>* Diagrama de árbol (Tree map)</strong><a class="headerlink" href="#diagrama-de-arbol-tree-map" title="Permanent link">&para;</a></h3>
+<p>Muestra datos jerárquicos como un conjunto de rectángulos. Cada grupo se representa como un rectángulo cuya área es proporcional a su valor. Se pueden usar esquemas de color para representar varias dimensiones.</p>
+<p><img alt="imagen" src="imagenes/diagramas/arbol.PNG" /></p>
+<h3 id="nube-de-palabras-word-cloud"><strong>* Nube de palabras (Word cloud)</strong><a class="headerlink" href="#nube-de-palabras-word-cloud" title="Permanent link">&para;</a></h3>
+<p>Representación visual de las palabras que conforman un texto. El tamaño es mayor para las palabras más frecuentes.</p>
+<p><img alt="imagen" src="imagenes/diagramas/nube.PNG" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="apuntes07.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 3.2. ANÁLISIS EXPLORATORIO DE DATOS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              3.2. ANÁLISIS EXPLORATORIO DE DATOS
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Manoli Iborra - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:<m.iborra@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM178.117 262.104C87.429 196.287 88.353 196.121 64 177.167V152c0-13.255 10.745-24 24-24h272c13.255 0 24 10.745 24 24v25.167c-24.371 18.969-23.434 19.124-114.117 84.938-10.5 7.655-31.392 26.12-45.883 25.894-14.503.218-35.367-18.227-45.883-25.895zM384 217.775V360c0 13.255-10.745 24-24 24H88c-13.255 0-24-10.745-24-24V217.775c13.958 10.794 33.329 25.236 95.303 70.214 14.162 10.341 37.975 32.145 64.694 32.01 26.887.134 51.037-22.041 64.72-32.025 61.958-44.965 81.325-59.406 95.283-70.199z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "navigation.expand"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

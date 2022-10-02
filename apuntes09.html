@@ -1,0 +1,1010 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://manoli-iborra.github.io/bigdata2223/apuntes09.html">
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>4.1. PANDAS - BIG DATA</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="BIG DATA" class="md-header__button md-logo" aria-label="BIG DATA" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BIG DATA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.1. PANDAS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="BIG DATA" class="md-nav__button md-logo" aria-label="BIG DATA" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    BIG DATA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        1. INTRODUCCIÓN
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        2. BIG DATA
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="2. BIG DATA" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          2. BIG DATA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes01.html" class="md-nav__link">
+        2.0. BIG DATA
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes02.html" class="md-nav__link">
+        2.1. PERFILES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes03.html" class="md-nav__link">
+        2.2. TIPOS DE DATOS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes04.html" class="md-nav__link">
+        2.3. FORMATO DE DATOS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes05.html" class="md-nav__link">
+        2.4. RESUMEN
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        3. VISUALIZACIÓN DE DATOS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="3. VISUALIZACIÓN DE DATOS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          3. VISUALIZACIÓN DE DATOS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes06.html" class="md-nav__link">
+        3.1. INTRODUCCIÓN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes07.html" class="md-nav__link">
+        3.2. ANÁLISIS EXPLORATORIO DE DATOS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apuntes08.html" class="md-nav__link">
+        3.3. VISUALIZACIÓN DE DATOS
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        4. PYTHON
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="4. PYTHON" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          4. PYTHON
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4.1. PANDAS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="apuntes09.html" class="md-nav__link md-nav__link--active">
+        4.1. PANDAS
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    PANDAS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-de-la-libreria-pandas" class="md-nav__link">
+    Características de la librería Pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="Características de la librería Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-datos-de-pandas" class="md-nav__link">
+    Tipos de datos de Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-un-dataframe" class="md-nav__link">
+    Características de un Dataframe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-vs-numpy" class="md-nav__link">
+    Pandas VS NumPy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descargar-la-libreria-de-pandas" class="md-nav__link">
+    Descargar la librería de Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#series" class="md-nav__link">
+    Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atributos-de-la-clase-series" class="md-nav__link">
+    Atributos de la clase Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceso-a-elementos-de-una-serie" class="md-nav__link">
+    Acceso a elementos de una Serie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-estadisticos-de-la-clase-series" class="md-nav__link">
+    Métodos estadísticos de la clase Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenar-una-serie" class="md-nav__link">
+    Ordenar una Serie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminar-los-datos-desconocidos-en-una-serie" class="md-nav__link">
+    Eliminar los datos desconocidos en una Serie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframe" class="md-nav__link">
+    DataFrame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atributos-y-metodos-de-un-dataframe" class="md-nav__link">
+    Atributos y métodos de un DataFrame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renombrar-los-nombres-de-las-filas-y-las-columnas" class="md-nav__link">
+    Renombrar los nombres de las filas y las columnas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceso-a-los-elementos-de-un-dataframe" class="md-nav__link">
+    Acceso a los elementos de un Dataframe
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    PANDAS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-de-la-libreria-pandas" class="md-nav__link">
+    Características de la librería Pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="Características de la librería Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-datos-de-pandas" class="md-nav__link">
+    Tipos de datos de Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-un-dataframe" class="md-nav__link">
+    Características de un Dataframe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-vs-numpy" class="md-nav__link">
+    Pandas VS NumPy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descargar-la-libreria-de-pandas" class="md-nav__link">
+    Descargar la librería de Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#series" class="md-nav__link">
+    Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atributos-de-la-clase-series" class="md-nav__link">
+    Atributos de la clase Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceso-a-elementos-de-una-serie" class="md-nav__link">
+    Acceso a elementos de una Serie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-estadisticos-de-la-clase-series" class="md-nav__link">
+    Métodos estadísticos de la clase Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenar-una-serie" class="md-nav__link">
+    Ordenar una Serie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminar-los-datos-desconocidos-en-una-serie" class="md-nav__link">
+    Eliminar los datos desconocidos en una Serie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframe" class="md-nav__link">
+    DataFrame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atributos-y-metodos-de-un-dataframe" class="md-nav__link">
+    Atributos y métodos de un DataFrame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renombrar-los-nombres-de-las-filas-y-las-columnas" class="md-nav__link">
+    Renombrar los nombres de las filas y las columnas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceso-a-los-elementos-de-un-dataframe" class="md-nav__link">
+    Acceso a los elementos de un Dataframe
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="python"><strong>PYTHON </strong><a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Lenguaje de programación orientado a objetos de alto nivel y de propósito general.</li>
+<li>Se basa en la simpleza y en la facilidad de lectura de código disminuyendo costes de mantenimiento y facilitando su aprendizaje.</li>
+<li>Soporta módulos y librerías que favorecen la reutilización de código.</li>
+<li>Dispone de potentes estructuras de datos y librerías enfocadas al análisis de datos.</li>
+<li>Es un lenguaje interpretado, se ejecuta línea a línea. No hay un paso de compilación como en otros lenguajes.</li>
+<li>Es open source y multiplataforma (windows, Linux, Mac,...)</li>
+</ul>
+<h2 id="pandas"><strong><em>PANDAS</em></strong><a class="headerlink" href="#pandas" title="Permanent link">&para;</a></h2>
+<p>Pandas (panel-data) es una librería de código abierto escrito en python que proporciona estructuras de datos y herramientas de análisis de datos de alto rendimiento, rápidas y fáciles de usar para manipular datos numéricos y series de tiempo.
+Está construida sobre la librería NumPy.</p>
+<h2 id="caracteristicas-de-la-libreria-pandas"><strong><em>Características de la librería Pandas</em></strong><a class="headerlink" href="#caracteristicas-de-la-libreria-pandas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Define nuevas estructuras de datos basadas en los arrays de la librería NumPy pero con nuevas funcionalidades.</li>
+<li>Permite leer y escribir fácilmente ficheros en formato CSV, Excel, etc.</li>
+<li>Permite acceder a los datos mediante índices o nombres para filas y columnas.</li>
+<li>Ofrece métodos para reordenar, dividir y combinar conjuntos de datos.</li>
+<li>Permite trabajar con series temporales.</li>
+<li>Realiza todas estas operaciones de forma eficiente.</li>
+</ul>
+<h3 id="tipos-de-datos-de-pandas"><strong> Tipos de datos de Pandas</strong><a class="headerlink" href="#tipos-de-datos-de-pandas" title="Permanent link">&para;</a></h3>
+<p>Pandas tiene tres estructuras de datos diferentes:</p>
+<ul>
+<li>Series: Estructura de una dimensión que contiene una secuencia de valores y un array de etiquetas asociadas (el índice).</li>
+<li>DataFrame: Estructura de dos dimensiones (tablas)</li>
+<li>Panel: Estructura de tres dimensiones (cubos)</li>
+</ul>
+<p>Estas estructuras se construyen a partir de la librería Numpy.</p>
+<h3 id="caracteristicas-de-un-dataframe"><strong> Características de un Dataframe</strong><a class="headerlink" href="#caracteristicas-de-un-dataframe" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Almacena una tabla con una colección ordenada de columnas.</li>
+<li>Cada columna puede ser de un tipo diferente (numérico, cadena, booleano,...)</li>
+<li>Tiene índices tanto para las filas como para las columnas.</li>
+<li>Cada columna es un elemento de tipo Series.</li>
+</ul>
+<h3 id="pandas-vs-numpy"><strong> Pandas VS NumPy</strong><a class="headerlink" href="#pandas-vs-numpy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>NumPy es una librería para cálculo numérico y procesamiento de arrays multidimensionales.</li>
+<li>Los cálculos usando arrays de NumPy son más rápidos que los arrays normales de Python.</li>
+<li>Permite manejar gran cantidad de datos y es adecuada para cálculo matricial.</li>
+</ul>
+<p><img alt="imagen" src="imagenes/pandas/pandasnumpy.PNG" /></p>
+<h3 id="descargar-la-libreria-de-pandas"><strong> Descargar la librería de Pandas</strong><a class="headerlink" href="#descargar-la-libreria-de-pandas" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    import pandas as pd
+<span class="linenos" data-linenos="2 "></span>    pd.__version__
+</code></pre></div>
+<h3 id="series"><strong> Series</strong><a class="headerlink" href="#series" title="Permanent link">&para;</a></h3>
+<p>La clase de objetos Series son estructuras similares a los arrays de una dimensión. Son homogéneas, es decir, sus elementos tienen que ser del mismo tipo, y su tamaño es inmutable, es decir, no se puede cambiar el número de elementos, aunque si su contenido.</p>
+<p><strong>Creación de un objeto de la clase Series (constructor) a partir de una lista o tupla</strong>
+<ins class="critic">Series</ins>(data=lista, index=indices, dtype=tipo) : Devuelve un objeto de tipo Series con los valores de lista, las claves especificadas en índices y el tipo de datos indicado en tipo. Si no se pasa la lista de índices se utilizan como índices los enteros del 0 al n-1, done n es el tamaño de la serie. Si no se pasa el tipo de dato se deduce.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    s = pd.Series({&#39;Matemáticas&#39;: 6.0,  &#39;Economía&#39;: 4.5, &#39;Programación&#39;: 8.5})
+<span class="linenos" data-linenos="2 "></span>    print(s)
+</code></pre></div>
+<p>Matemáticas     6.0
+Economía        4.5
+Programación    8.5
+dtype: float64</p>
+<h3 id="atributos-de-la-clase-series"><strong> Atributos de la clase Series</strong><a class="headerlink" href="#atributos-de-la-clase-series" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><ins class="critic">s.size</ins> : Devuelve el número de elementos de la serie s. También podemos utilizar len(s).</p>
+</li>
+<li>
+<p><ins class="critic">s.index</ins> : Devuelve una lista con los nombres de las filas del DataFrame.</p>
+</li>
+<li>
+<p><ins class="critic">s.dtype</ins> : Devuelve el tipo de datos de los elementos de la serie s.</p>
+</li>
+<li>
+<p><ins class="critic">s.values</ins> : Devuelve una lista con los valores asociados al índice.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>import pandas as pd
+<span class="linenos" data-linenos="2 "></span>s = pd.Series([1, 2, 2, 3, 3, 3, 4, 4, 4, 4])
+<span class="linenos" data-linenos="3 "></span>print(s.size)
+<span class="linenos" data-linenos="4 "></span>print(s.index)
+<span class="linenos" data-linenos="5 "></span>print(s.values)
+<span class="linenos" data-linenos="6 "></span>print(s.dtype)
+</code></pre></div>
+</li>
+</ul>
+<h3 id="acceso-a-elementos-de-una-serie"><strong> Acceso a elementos de una Serie</strong><a class="headerlink" href="#acceso-a-elementos-de-una-serie" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    s = pd.Series({&#39;Matemáticas&#39;: 6.0,  &#39;Economía&#39;: 4.5, &#39;Programación&#39;: 8.5})
+<span class="linenos" data-linenos=" 2 "></span>    print(s[0])# buscar por índice
+<span class="linenos" data-linenos=" 3 "></span>    print(s[1])
+<span class="linenos" data-linenos=" 4 "></span>    print()
+<span class="linenos" data-linenos=" 5 "></span>    print(s[1:3])#el indice funciona como en listas
+<span class="linenos" data-linenos=" 6 "></span>    print()
+<span class="linenos" data-linenos=" 7 "></span>    print(s[&#39;Economía&#39;])#buscar  por nombre
+<span class="linenos" data-linenos=" 8 "></span>    print(s.Economía)#otra forma de buscar por nombre cuando no tiene espacios
+<span class="linenos" data-linenos=" 9 "></span>    print()
+<span class="linenos" data-linenos="10 "></span>    print(s[[&#39;Programación&#39;, &#39;Matemáticas&#39;]])
+<span class="linenos" data-linenos="11 "></span>    print()
+<span class="linenos" data-linenos="12 "></span>    print(s[&#39;Matemáticas&#39;:&#39;Economía&#39;])#el último índice es válido
+<span class="linenos" data-linenos="13 "></span>    print()
+<span class="linenos" data-linenos="14 "></span>    print(s.index)
+<span class="linenos" data-linenos="15 "></span>    print(s.values)
+</code></pre></div>
+<h3 id="metodos-estadisticos-de-la-clase-series"><strong> Métodos estadísticos de la clase Series</strong><a class="headerlink" href="#metodos-estadisticos-de-la-clase-series" title="Permanent link">&para;</a></h3>
+<ul>
+<li><ins class="critic">s.count()</ins> : Devuelve el número de elementos que no son None ni NaN (no es un número) en la serie s.</li>
+<li><ins class="critic">s.sum()</ins> : Devuelve la suma de los datos de la serie s cuando los datos son de un tipo numérico, o la concatenación de ellos cuando son del tipo cadena str.</li>
+<li><ins class="critic">s.cumsum()</ins> : Devuelve una serie con la suma acumulada de los datos de la serie s cuando los datos son de un tipo numérico.</li>
+<li><ins class="critic">s.value_counts()</ins> : Devuelve una serie con la frecuencia (número de repeticiones) de cada valor de la serie s.</li>
+<li><ins class="critic">s.min()</ins> : Devuelve el menor de los datos de la serie s.</li>
+<li><ins class="critic">s.max()</ins> : Devuelve el mayor de los datos de la serie s.</li>
+<li><ins class="critic">s.mean()</ins> : Devuelve la media de los datos de la serie s cuando los datos son de un tipo numérico.</li>
+<li><ins class="critic">s.std()</ins> : Devuelve la desviación típica de los datos de la serie s cuando los datos son de un tipo numérico.</li>
+<li><ins class="critic">s.describe()</ins>: Devuelve una serie con un resumen descriptivo que incluye el número de datos, su suma, el mínimo, el máximo, la media, la desviación típica y los cuartiles.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>import pandas as pd
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span>s = pd.Series([1, 1, 1, 1, 2, 2, 2, 3, 3, 4])
+<span class="linenos" data-linenos=" 4 "></span>print(s.count())
+<span class="linenos" data-linenos=" 5 "></span>print(s.sum())
+<span class="linenos" data-linenos=" 6 "></span>print()
+<span class="linenos" data-linenos=" 7 "></span>print(s.cumsum())
+<span class="linenos" data-linenos=" 8 "></span>print()
+<span class="linenos" data-linenos=" 9 "></span>print(s.value_counts())
+<span class="linenos" data-linenos="10 "></span>print(s.value_counts(normalize=True)*100)#tanto por 1
+<span class="linenos" data-linenos="11 "></span>print(s.min())
+<span class="linenos" data-linenos="12 "></span>print(s.max())
+<span class="linenos" data-linenos="13 "></span>print(s.mean())
+<span class="linenos" data-linenos="14 "></span>print(s.std())
+<span class="linenos" data-linenos="15 "></span>print()
+<span class="linenos" data-linenos="16 "></span>print(s.describe())
+</code></pre></div>
+</li>
+</ul>
+<h3 id="ordenar-una-serie"><strong> Ordenar una Serie</strong><a class="headerlink" href="#ordenar-una-serie" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><ins class="critic">s.sort_values</ins>(ascending=booleano): Devuelve la serie que resulta de ordenar los valores la serie s. Si argumento del parámetro ascending es True el orden es creciente y si es False decreciente.</p>
+</li>
+<li>
+<p><ins class="critic">df.sort_index</ins>(ascending=booleano) : Devuelve la serie que resulta de ordenar el índice de la serie s. Si el argumento del parámetro ascending es True el orden es creciente y si es False decreciente.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>import pandas as pd
+<span class="linenos" data-linenos="2 "></span>s = pd.Series({&#39;Matemáticas&#39;: 6.0,  &#39;Economía&#39;: 4.5, &#39;Programación&#39;: 8.5})
+<span class="linenos" data-linenos="3 "></span>print(s.sort_values())
+<span class="linenos" data-linenos="4 "></span>print()
+<span class="linenos" data-linenos="5 "></span>print(s.sort_index(ascending = False))
+</code></pre></div>
+</li>
+</ul>
+<h3 id="eliminar-los-datos-desconocidos-en-una-serie"><strong> Eliminar los datos desconocidos en una Serie</strong><a class="headerlink" href="#eliminar-los-datos-desconocidos-en-una-serie" title="Permanent link">&para;</a></h3>
+<p>Los datos desconocidos se representan en Pandas por NaN y los nulos por None. Tanto unos como otros suelen ser un problema a la hora de realizar algunos análisis de datos, por lo que es habitual eliminarlos. Para eliminarlos de una serie se utiliza el siguiente método:</p>
+<ul>
+<li><ins class="critic">s.dropna()</ins>: Elimina los datos desconocidos o nulos de la serie s.
+        import pandas as pd
+        import numpy as np<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>s = pd.Series([&#39;a&#39;, &#39;b&#39;, None, &#39;c&#39;, np.NaN,  &#39;d&#39;])
+<span class="linenos" data-linenos="2 "></span>print(s)
+<span class="linenos" data-linenos="3 "></span>print()
+<span class="linenos" data-linenos="4 "></span>print(s.dropna())
+<span class="linenos" data-linenos="5 "></span>print()
+<span class="linenos" data-linenos="6 "></span># la serie es inmutable
+<span class="linenos" data-linenos="7 "></span>print(s)
+</code></pre></div>
+</li>
+</ul>
+<h3 id="dataframe"><strong> DataFrame</strong><a class="headerlink" href="#dataframe" title="Permanent link">&para;</a></h3>
+<p>Un objeto del tipo DataFrame define un conjunto de datos estructurado en forma de tabla donde cada columna es un objeto de tipo Series, es decir, todos los datos de una misma columna son del mismo tipo, y las filas son registros que pueden contender datos de distintos tipos.</p>
+<p>Un DataFrame contiene dos índices, uno para las filas y otro para las columnas, y se puede acceder a sus elementos mediante los nombres de las filas y las columnas.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    import pandas as pd
+<span class="linenos" data-linenos=" 2 "></span>    #cada objeto del diccionario es una columna
+<span class="linenos" data-linenos=" 3 "></span>    datos = {&#39;nombre&#39;:[&#39;María&#39;, &#39;Luis&#39;, &#39;Carmen&#39;, &#39;Antonio&#39;],
+<span class="linenos" data-linenos=" 4 "></span>    &#39;edad&#39;:[18, 22, 20, 21],
+<span class="linenos" data-linenos=" 5 "></span>    &#39;grado&#39;:[&#39;Economía&#39;, &#39;Medicina&#39;, &#39;Arquitectura&#39;, &#39;Economía&#39;],
+<span class="linenos" data-linenos=" 6 "></span>    &#39;correo&#39;:[&#39;maria@gmail.com&#39;, &#39;luis@yahoo.es&#39;, &#39;carmen@gmail.com&#39;, &#39;antonio@gmail.com&#39;]
+<span class="linenos" data-linenos=" 7 "></span>    }
+<span class="linenos" data-linenos=" 8 "></span>    print(type(datos))
+<span class="linenos" data-linenos=" 9 "></span>    print()
+<span class="linenos" data-linenos="10 "></span>    df = pd.DataFrame(datos)
+<span class="linenos" data-linenos="11 "></span>    print(type(df))
+<span class="linenos" data-linenos="12 "></span>    print(df)
+<span class="linenos" data-linenos="13 "></span>    df
+</code></pre></div>
+<h3 id="atributos-y-metodos-de-un-dataframe"><strong> Atributos y métodos de un DataFrame</strong><a class="headerlink" href="#atributos-y-metodos-de-un-dataframe" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><ins class="critic">df.info()</ins> : Devuelve información (número de filas, número de columnas, índices, tipo de las columnas y memoria usado) sobre el DataFrame df.</p>
+</li>
+<li>
+<p><ins class="critic">df.shape</ins> : Devuelve una tupla con el número de filas y columnas del DataFrame df.</p>
+</li>
+<li>
+<p><ins class="critic">df.size</ins> : Devuelve el número de elementos del DataFrame.</p>
+</li>
+<li>
+<p><ins class="critic">len(df)</ins> : Defuelve el número de filas del DataFrame.</p>
+</li>
+<li>
+<p><ins class="critic">df.columns</ins> : Devuelve una lista con los nombres de las columnas del DataFrame df.</p>
+</li>
+<li>
+<p><ins class="critic">df.index</ins> : Devuelve una lista con los nombres de las filas del DataFrame df.</p>
+</li>
+<li>
+<p><ins class="critic">df.dtypes</ins> : Devuelve una serie con los tipos de datos de las columnas del DataFrame df.</p>
+</li>
+<li>
+<p><ins class="critic">df.head(n)</ins> : Devuelve las n primeras filas del DataFrame df.</p>
+</li>
+<li>
+<p><ins class="critic">df.tail(n)</ins> : Devuelve las n últimas filas del DataFrame df.</p>
+</li>
+<li>
+<p><ins class="critic">df.T</ins>: Devuelve la traspuesta, cambia filas por columnas.</p>
+</li>
+</ul>
+<h3 id="renombrar-los-nombres-de-las-filas-y-las-columnas"><strong> Renombrar los nombres de las filas y las columnas</strong><a class="headerlink" href="#renombrar-los-nombres-de-las-filas-y-las-columnas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><mark>df.rename</mark>(columns=columnas, index=filas): Devuelve el DataFrame que resulta de renombrar las columnas indicadas en las claves del diccionario columnas con sus valores y las filas indicadas en las claves del diccionario filas con sus valores en el DataFrame df.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>df = pd.DataFrame()
+<span class="linenos" data-linenos="2 "></span>nombres = [&#39;Juan&#39;, &#39;Laura&#39;, &#39;Pepe&#39;]
+<span class="linenos" data-linenos="3 "></span>edades = [42, 40, 37]
+<span class="linenos" data-linenos="4 "></span>df[&#39;Nombre&#39;] = nombres
+<span class="linenos" data-linenos="5 "></span>df[&#39;Edad&#39;] = edades
+<span class="linenos" data-linenos="6 "></span>df.rename(columns={&#39;Nombre&#39;:&#39;Nom&#39;}, index={0:100})
+<span class="linenos" data-linenos="7 "></span>print(df)
+</code></pre></div>
+</li>
+</ul>
+<h3 id="acceso-a-los-elementos-de-un-dataframe"><strong> Acceso a los elementos de un Dataframe</strong><a class="headerlink" href="#acceso-a-los-elementos-de-un-dataframe" title="Permanent link">&para;</a></h3>
+<p>Accesos mediante posiciones:</p>
+<ul>
+<li><mark>df.iloc[i,j]</mark>: Devuelve el elemento que se encuentra en la fila i y la columna j del DataFrame df. Pueden indicarse secuencias de índices para obtener partes del DataFrame.</li>
+<li><mark>df.iloc[filas, columnas]</mark>: Devuelve un DataFrame con los elementos de las filas de la lista filas y de las columnas de la lista columnas.</li>
+<li><mark>df.iloc[i]</mark>:Devuelve una serie con los elementos de la fila i del DataFrame df.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>df = pd.DataFrame([[1, 2], [4, 5], [7, 8]], index=[&#39;cobra&#39;, &#39;viper&#39;, &#39;sidewinder&#39;], columns=[&#39;max_speed&#39;, &#39;shield&#39;])
+<span class="linenos" data-linenos="2 "></span>df
+<span class="linenos" data-linenos="3 "></span>df.iloc[0]
+<span class="linenos" data-linenos="4 "></span>df.iloc[[0, 1]]
+<span class="linenos" data-linenos="5 "></span>df.iloc[:3]
+</code></pre></div>
+</li>
+</ul>
+<p>Acceso mediante nombres:</p>
+<ul>
+<li><mark>df.loc[fila, columna]</mark>: Devuelve el elemento que se encuentra en la fila con nombre fila y la columna de con nombre columna del DataFrame df.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>df.loc[&#39;viper&#39;]
+<span class="linenos" data-linenos="2 "></span>df.loc[&#39;cobra&#39;, &#39;shield&#39;]
+</code></pre></div>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="apuntes08.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 3.3. VISUALIZACIÓN DE DATOS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              3.3. VISUALIZACIÓN DE DATOS
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Manoli Iborra - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:<m.iborra@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM178.117 262.104C87.429 196.287 88.353 196.121 64 177.167V152c0-13.255 10.745-24 24-24h272c13.255 0 24 10.745 24 24v25.167c-24.371 18.969-23.434 19.124-114.117 84.938-10.5 7.655-31.392 26.12-45.883 25.894-14.503.218-35.367-18.227-45.883-25.895zM384 217.775V360c0 13.255-10.745 24-24 24H88c-13.255 0-24-10.745-24-24V217.775c13.958 10.794 33.329 25.236 95.303 70.214 14.162 10.341 37.975 32.145 64.694 32.01 26.887.134 51.037-22.041 64.72-32.025 61.958-44.965 81.325-59.406 95.283-70.199z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "navigation.expand"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

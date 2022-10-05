@@ -741,8 +741,8 @@ Está construida sobre la librería NumPy.</p>
 <p>Pandas tiene tres estructuras de datos diferentes:</p>
 <ul>
 <li>Series: Estructura de una dimensión que contiene una secuencia de valores y un array de etiquetas asociadas (el índice).</li>
-<li>DataFrame: Estructura de dos dimensiones (tablas)</li>
-<li>Panel: Estructura de tres dimensiones (cubos)</li>
+<li>DataFrame: Estructura de dos dimensiones (tablas).</li>
+<li>Panel: Estructura de tres dimensiones (cubos).</li>
 </ul>
 <p>Estas estructuras se construyen a partir de la librería Numpy.</p>
 <h3 id="caracteristicas-de-un-dataframe"><strong> Características de un Dataframe</strong><a class="headerlink" href="#caracteristicas-de-un-dataframe" title="Permanent link">&para;</a></h3>
@@ -760,16 +760,16 @@ Está construida sobre la librería NumPy.</p>
 </ul>
 <p><img alt="imagen" src="imagenes/pandas/pandasnumpy.PNG" /></p>
 <h3 id="descargar-la-libreria-de-pandas"><strong> Descargar la librería de Pandas</strong><a class="headerlink" href="#descargar-la-libreria-de-pandas" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    import pandas as pd
-<span class="linenos" data-linenos="2 "></span>    pd.__version__
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
 </code></pre></div>
 <h3 id="series"><strong> Series</strong><a class="headerlink" href="#series" title="Permanent link">&para;</a></h3>
 <p>La clase de objetos Series son estructuras similares a los arrays de una dimensión. Son homogéneas, es decir, sus elementos tienen que ser del mismo tipo, y su tamaño es inmutable, es decir, no se puede cambiar el número de elementos, aunque si su contenido.</p>
 <p><strong>Creación de un objeto de la clase Series (constructor) a partir de una lista o tupla</strong>
-<ins class="critic">Series</ins>(data=lista, index=indices, dtype=tipo) : Devuelve un objeto de tipo Series con los valores de lista, las claves especificadas en índices y el tipo de datos indicado en tipo. Si no se pasa la lista de índices se utilizan como índices los enteros del 0 al n-1, done n es el tamaño de la serie. Si no se pasa el tipo de dato se deduce.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    s = pd.Series({&#39;Matemáticas&#39;: 6.0,  &#39;Economía&#39;: 4.5, &#39;Programación&#39;: 8.5})
-<span class="linenos" data-linenos="2 "></span>    print(s)
-</code></pre></div>
+<ins class="critic">Series</ins>(data=lista, index=indices, dtype=tipo) : Devuelve un objeto de tipo Series con los valores de lista, las claves especificadas en índices y el tipo de datos indicado en tipo. Si no se pasa la lista de índices se utilizan como índices los enteros del 0 al n-1, done n es el tamaño de la serie. Si no se pasa el tipo de dato se deduce.
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Matemáticas&#39;</span><span class="p">:</span> <span class="mf">6.0</span><span class="p">,</span>  <span class="s1">&#39;Economía&#39;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s1">&#39;Programación&#39;</span><span class="p">:</span> <span class="mf">8.5</span><span class="p">})</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></p>
 <p>Matemáticas     6.0
 Economía        4.5
 Programación    8.5
@@ -786,32 +786,32 @@ dtype: float64</p>
 <p><ins class="critic">s.dtype</ins> : Devuelve el tipo de datos de los elementos de la serie s.</p>
 </li>
 <li>
-<p><ins class="critic">s.values</ins> : Devuelve una lista con los valores asociados al índice.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>import pandas as pd
-<span class="linenos" data-linenos="2 "></span>s = pd.Series([1, 2, 2, 3, 3, 3, 4, 4, 4, 4])
-<span class="linenos" data-linenos="3 "></span>print(s.size)
-<span class="linenos" data-linenos="4 "></span>print(s.index)
-<span class="linenos" data-linenos="5 "></span>print(s.values)
-<span class="linenos" data-linenos="6 "></span>print(s.dtype)
-</code></pre></div>
+<p><ins class="critic">s.values</ins> : Devuelve una lista con los valores asociados al índice.
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>        <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos" data-linenos="2 "></span>        <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</code></pre></div></p>
 </li>
 </ul>
 <h3 id="acceso-a-elementos-de-una-serie"><strong> Acceso a elementos de una Serie</strong><a class="headerlink" href="#acceso-a-elementos-de-una-serie" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    s = pd.Series({&#39;Matemáticas&#39;: 6.0,  &#39;Economía&#39;: 4.5, &#39;Programación&#39;: 8.5})
-<span class="linenos" data-linenos=" 2 "></span>    print(s[0])# buscar por índice
-<span class="linenos" data-linenos=" 3 "></span>    print(s[1])
-<span class="linenos" data-linenos=" 4 "></span>    print()
-<span class="linenos" data-linenos=" 5 "></span>    print(s[1:3])#el indice funciona como en listas
-<span class="linenos" data-linenos=" 6 "></span>    print()
-<span class="linenos" data-linenos=" 7 "></span>    print(s[&#39;Economía&#39;])#buscar  por nombre
-<span class="linenos" data-linenos=" 8 "></span>    print(s.Economía)#otra forma de buscar por nombre cuando no tiene espacios
-<span class="linenos" data-linenos=" 9 "></span>    print()
-<span class="linenos" data-linenos="10 "></span>    print(s[[&#39;Programación&#39;, &#39;Matemáticas&#39;]])
-<span class="linenos" data-linenos="11 "></span>    print()
-<span class="linenos" data-linenos="12 "></span>    print(s[&#39;Matemáticas&#39;:&#39;Economía&#39;])#el último índice es válido
-<span class="linenos" data-linenos="13 "></span>    print()
-<span class="linenos" data-linenos="14 "></span>    print(s.index)
-<span class="linenos" data-linenos="15 "></span>    print(s.values)
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Matemáticas&#39;</span><span class="p">:</span> <span class="mf">6.0</span><span class="p">,</span>  <span class="s1">&#39;Economía&#39;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s1">&#39;Programación&#39;</span><span class="p">:</span> <span class="mf">8.5</span><span class="p">})</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="c1"># buscar por índice</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="c1">#el indice funciona como en listas</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;Economía&#39;</span><span class="p">])</span><span class="c1">#buscar  por nombre</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">Economía</span><span class="p">)</span><span class="c1">#otra forma de buscar por nombre cuando no tiene espacios</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[[</span><span class="s1">&#39;Programación&#39;</span><span class="p">,</span> <span class="s1">&#39;Matemáticas&#39;</span><span class="p">]])</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos="12 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;Matemáticas&#39;</span><span class="p">:</span><span class="s1">&#39;Economía&#39;</span><span class="p">])</span><span class="c1">#el último índice es válido</span>
+<span class="linenos" data-linenos="13 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos="14 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="metodos-estadisticos-de-la-clase-series"><strong> Métodos estadísticos de la clase Series</strong><a class="headerlink" href="#metodos-estadisticos-de-la-clase-series" title="Permanent link">&para;</a></h3>
 <ul>
@@ -823,25 +823,24 @@ dtype: float64</p>
 <li><ins class="critic">s.max()</ins> : Devuelve el mayor de los datos de la serie s.</li>
 <li><ins class="critic">s.mean()</ins> : Devuelve la media de los datos de la serie s cuando los datos son de un tipo numérico.</li>
 <li><ins class="critic">s.std()</ins> : Devuelve la desviación típica de los datos de la serie s cuando los datos son de un tipo numérico.</li>
-<li><ins class="critic">s.describe()</ins>: Devuelve una serie con un resumen descriptivo que incluye el número de datos, su suma, el mínimo, el máximo, la media, la desviación típica y los cuartiles.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>import pandas as pd
-<span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span>s = pd.Series([1, 1, 1, 1, 2, 2, 2, 3, 3, 4])
-<span class="linenos" data-linenos=" 4 "></span>print(s.count())
-<span class="linenos" data-linenos=" 5 "></span>print(s.sum())
-<span class="linenos" data-linenos=" 6 "></span>print()
-<span class="linenos" data-linenos=" 7 "></span>print(s.cumsum())
-<span class="linenos" data-linenos=" 8 "></span>print()
-<span class="linenos" data-linenos=" 9 "></span>print(s.value_counts())
-<span class="linenos" data-linenos="10 "></span>print(s.value_counts(normalize=True)*100)#tanto por 1
-<span class="linenos" data-linenos="11 "></span>print(s.min())
-<span class="linenos" data-linenos="12 "></span>print(s.max())
-<span class="linenos" data-linenos="13 "></span>print(s.mean())
-<span class="linenos" data-linenos="14 "></span>print(s.std())
-<span class="linenos" data-linenos="15 "></span>print()
-<span class="linenos" data-linenos="16 "></span>print(s.describe())
-</code></pre></div>
-</li>
+<li><ins class="critic">s.describe()</ins>: Devuelve una serie con un resumen descriptivo que incluye el número de datos, su suma, el mínimo, el máximo, la media, la desviación típica y los cuartiles.</li>
 </ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">cumsum</span><span class="p">())</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="c1">#tanto por 1</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="linenos" data-linenos="12 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="linenos" data-linenos="13 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="linenos" data-linenos="14 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos="15 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</code></pre></div>
 <h3 id="ordenar-una-serie"><strong> Ordenar una Serie</strong><a class="headerlink" href="#ordenar-una-serie" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -849,47 +848,47 @@ dtype: float64</p>
 </li>
 <li>
 <p><ins class="critic">df.sort_index</ins>(ascending=booleano) : Devuelve la serie que resulta de ordenar el índice de la serie s. Si el argumento del parámetro ascending es True el orden es creciente y si es False decreciente.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>import pandas as pd
-<span class="linenos" data-linenos="2 "></span>s = pd.Series({&#39;Matemáticas&#39;: 6.0,  &#39;Economía&#39;: 4.5, &#39;Programación&#39;: 8.5})
-<span class="linenos" data-linenos="3 "></span>print(s.sort_values())
-<span class="linenos" data-linenos="4 "></span>print()
-<span class="linenos" data-linenos="5 "></span>print(s.sort_index(ascending = False))
-</code></pre></div>
 </li>
 </ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Matemáticas&#39;</span><span class="p">:</span> <span class="mf">6.0</span><span class="p">,</span>  <span class="s1">&#39;Economía&#39;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s1">&#39;Programación&#39;</span><span class="p">:</span> <span class="mf">8.5</span><span class="p">})</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sort_values</span><span class="p">())</span>
+<span class="linenos" data-linenos="4 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
 <h3 id="eliminar-los-datos-desconocidos-en-una-serie"><strong> Eliminar los datos desconocidos en una Serie</strong><a class="headerlink" href="#eliminar-los-datos-desconocidos-en-una-serie" title="Permanent link">&para;</a></h3>
 <p>Los datos desconocidos se representan en Pandas por NaN y los nulos por None. Tanto unos como otros suelen ser un problema a la hora de realizar algunos análisis de datos, por lo que es habitual eliminarlos. Para eliminarlos de una serie se utiliza el siguiente método:</p>
 <ul>
-<li><ins class="critic">s.dropna()</ins>: Elimina los datos desconocidos o nulos de la serie s.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>import pandas as pd
-<span class="linenos" data-linenos=" 2 "></span>import numpy as np
+<li><ins class="critic">s.dropna()</ins>: Elimina los datos desconocidos o nulos de la serie s.
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="linenos" data-linenos=" 3 "></span>
-<span class="linenos" data-linenos=" 4 "></span>s = pd.Series([&#39;a&#39;, &#39;b&#39;, None, &#39;c&#39;, np.NaN,  &#39;d&#39;])
-<span class="linenos" data-linenos=" 5 "></span>print(s)
-<span class="linenos" data-linenos=" 6 "></span>print()
-<span class="linenos" data-linenos=" 7 "></span>print(s.dropna())
-<span class="linenos" data-linenos=" 8 "></span>print()
-<span class="linenos" data-linenos=" 9 "></span># la serie es inmutable
-<span class="linenos" data-linenos="10 "></span>print(s)
-</code></pre></div>
-</li>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span>  <span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1"># la serie es inmutable</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></li>
 </ul>
 <h3 id="dataframe"><strong> DataFrame</strong><a class="headerlink" href="#dataframe" title="Permanent link">&para;</a></h3>
 <p>Un objeto del tipo DataFrame define un conjunto de datos estructurado en forma de tabla donde cada columna es un objeto de tipo Series, es decir, todos los datos de una misma columna son del mismo tipo, y las filas son registros que pueden contender datos de distintos tipos.</p>
-<p>Un DataFrame contiene dos índices, uno para las filas y otro para las columnas, y se puede acceder a sus elementos mediante los nombres de las filas y las columnas.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    import pandas as pd
-<span class="linenos" data-linenos=" 2 "></span>    #cada objeto del diccionario es una columna
-<span class="linenos" data-linenos=" 3 "></span>    datos = {&#39;nombre&#39;:[&#39;María&#39;, &#39;Luis&#39;, &#39;Carmen&#39;, &#39;Antonio&#39;],
-<span class="linenos" data-linenos=" 4 "></span>    &#39;edad&#39;:[18, 22, 20, 21],
-<span class="linenos" data-linenos=" 5 "></span>    &#39;grado&#39;:[&#39;Economía&#39;, &#39;Medicina&#39;, &#39;Arquitectura&#39;, &#39;Economía&#39;],
-<span class="linenos" data-linenos=" 6 "></span>    &#39;correo&#39;:[&#39;maria@gmail.com&#39;, &#39;luis@yahoo.es&#39;, &#39;carmen@gmail.com&#39;, &#39;antonio@gmail.com&#39;]
-<span class="linenos" data-linenos=" 7 "></span>    }
-<span class="linenos" data-linenos=" 8 "></span>    print(type(datos))
-<span class="linenos" data-linenos=" 9 "></span>    print()
-<span class="linenos" data-linenos="10 "></span>    df = pd.DataFrame(datos)
-<span class="linenos" data-linenos="11 "></span>    print(type(df))
-<span class="linenos" data-linenos="12 "></span>    print(df)
-<span class="linenos" data-linenos="13 "></span>    df
-</code></pre></div>
+<p>Un DataFrame contiene dos índices, uno para las filas y otro para las columnas, y se puede acceder a sus elementos mediante los nombres de las filas y las columnas.
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">#cada objeto del diccionario es una columna</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">datos</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;nombre&#39;</span><span class="p">:[</span><span class="s1">&#39;María&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">,</span> <span class="s1">&#39;Carmen&#39;</span><span class="p">,</span> <span class="s1">&#39;Antonio&#39;</span><span class="p">],</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="s1">&#39;edad&#39;</span><span class="p">:[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="s1">&#39;grado&#39;</span><span class="p">:[</span><span class="s1">&#39;Economía&#39;</span><span class="p">,</span> <span class="s1">&#39;Medicina&#39;</span><span class="p">,</span> <span class="s1">&#39;Arquitectura&#39;</span><span class="p">,</span> <span class="s1">&#39;Economía&#39;</span><span class="p">],</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="s1">&#39;correo&#39;</span><span class="p">:[</span><span class="s1">&#39;maria@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;luis@yahoo.es&#39;</span><span class="p">,</span> <span class="s1">&#39;carmen@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;antonio@gmail.com&#39;</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">datos</span><span class="p">))</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">print</span><span class="p">()</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="linenos" data-linenos="12 "></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">df</span>
+</code></pre></div></p>
 <h3 id="atributos-y-metodos-de-un-dataframe"><strong> Atributos y métodos de un DataFrame</strong><a class="headerlink" href="#atributos-y-metodos-de-un-dataframe" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -925,37 +924,39 @@ dtype: float64</p>
 </ul>
 <h3 id="renombrar-los-nombres-de-las-filas-y-las-columnas"><strong> Renombrar los nombres de las filas y las columnas</strong><a class="headerlink" href="#renombrar-los-nombres-de-las-filas-y-las-columnas" title="Permanent link">&para;</a></h3>
 <ul>
-<li><mark>df.rename</mark>(columns=columnas, index=filas): Devuelve el DataFrame que resulta de renombrar las columnas indicadas en las claves del diccionario columnas con sus valores y las filas indicadas en las claves del diccionario filas con sus valores en el DataFrame df.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>df = pd.DataFrame()
-<span class="linenos" data-linenos="2 "></span>nombres = [&#39;Juan&#39;, &#39;Laura&#39;, &#39;Pepe&#39;]
-<span class="linenos" data-linenos="3 "></span>edades = [42, 40, 37]
-<span class="linenos" data-linenos="4 "></span>df[&#39;Nombre&#39;] = nombres
-<span class="linenos" data-linenos="5 "></span>df[&#39;Edad&#39;] = edades
-<span class="linenos" data-linenos="6 "></span>df.rename(columns={&#39;Nombre&#39;:&#39;Nom&#39;}, index={0:100})
-<span class="linenos" data-linenos="7 "></span>print(df)
-</code></pre></div>
-</li>
+<li><mark>df.rename</mark>(columns=columnas, index=filas): Devuelve el DataFrame que resulta de renombrar las columnas indicadas en las claves del diccionario columnas con sus valores y las filas indicadas en las claves del diccionario filas con sus valores en el DataFrame df.
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">nombres</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Juan&#39;</span><span class="p">,</span> <span class="s1">&#39;Laura&#39;</span><span class="p">,</span> <span class="s1">&#39;Pepe&#39;</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">edades</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">37</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nombres</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Edad&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">edades</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Nombre&#39;</span><span class="p">:</span><span class="s1">&#39;Nom&#39;</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">})</span>
+<span class="linenos" data-linenos="7 "></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div></li>
 </ul>
 <h3 id="acceso-a-los-elementos-de-un-dataframe"><strong> Acceso a los elementos de un Dataframe</strong><a class="headerlink" href="#acceso-a-los-elementos-de-un-dataframe" title="Permanent link">&para;</a></h3>
 <p>Accesos mediante posiciones:</p>
 <ul>
 <li><mark>df.iloc[i,j]</mark>: Devuelve el elemento que se encuentra en la fila i y la columna j del DataFrame df. Pueden indicarse secuencias de índices para obtener partes del DataFrame.</li>
 <li><mark>df.iloc[filas, columnas]</mark>: Devuelve un DataFrame con los elementos de las filas de la lista filas y de las columnas de la lista columnas.</li>
-<li><mark>df.iloc[i]</mark>:Devuelve una serie con los elementos de la fila i del DataFrame df.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>df = pd.DataFrame([[1, 2], [4, 5], [7, 8]], index=[&#39;cobra&#39;, &#39;viper&#39;, &#39;sidewinder&#39;], columns=[&#39;max_speed&#39;, &#39;shield&#39;])
-<span class="linenos" data-linenos="2 "></span>df
-<span class="linenos" data-linenos="3 "></span>df.iloc[0]
-<span class="linenos" data-linenos="4 "></span>df.iloc[[0, 1]]
-<span class="linenos" data-linenos="5 "></span>df.iloc[:3]
+<li>
+<p><mark>df.iloc[i]</mark>:Devuelve una serie con los elementos de la fila i del DataFrame df.
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cobra&#39;</span><span class="p">,</span> <span class="s1">&#39;viper&#39;</span><span class="p">,</span> <span class="s1">&#39;sidewinder&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;max_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;shield&#39;</span><span class="p">])</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">df</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
+Acceso mediante nombres:</p>
+</li>
+<li>
+<p><mark>df.loc[fila, columna]</mark>: Devuelve el elemento que se encuentra en la fila con nombre fila y la columna de con nombre columna del DataFrame df.</p>
 </li>
 </ul>
-<p>Acceso mediante nombres:</p>
-<ul>
-<li><mark>df.loc[fila, columna]</mark>: Devuelve el elemento que se encuentra en la fila con nombre fila y la columna de con nombre columna del DataFrame df.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>df.loc[&#39;viper&#39;]
-<span class="linenos" data-linenos="2 "></span>df.loc[&#39;cobra&#39;, &#39;shield&#39;]
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;viper&#39;</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;cobra&#39;</span><span class="p">,</span> <span class="s1">&#39;shield&#39;</span><span class="p">]</span>
 </code></pre></div>
-</li>
-</ul>
-<p><a href=https://colab.research.google.com/drive/1V9ez2wBCA1mwqIDKrSDMBAWGzGOkVWxy?usp=sharing target=blank> Ejercicio repaso Series y Dataframes</p>
+<!--<a href=https://colab.research.google.com/drive/1V9ez2wBCA1mwqIDKrSDMBAWGzGOkVWxy?usp=sharing target=blank> Ejercicio repaso Series y Dataframes-->
                 
               
               

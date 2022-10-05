@@ -766,36 +766,37 @@ Está construida sobre la librería NumPy.</p>
 <h3 id="series"><strong> Series</strong><a class="headerlink" href="#series" title="Permanent link">&para;</a></h3>
 <p>La clase de objetos Series son estructuras similares a los arrays de una dimensión. Son homogéneas, es decir, sus elementos tienen que ser del mismo tipo, y su tamaño es inmutable, es decir, no se puede cambiar el número de elementos, aunque si su contenido.</p>
 <p><strong>Creación de un objeto de la clase Series (constructor) a partir de una lista o tupla</strong>
-<ins class="critic">Series</ins>(data=lista, index=indices, dtype=tipo) : Devuelve un objeto de tipo Series con los valores de lista, las claves especificadas en índices y el tipo de datos indicado en tipo. Si no se pasa la lista de índices se utilizan como índices los enteros del 0 al n-1, done n es el tamaño de la serie. Si no se pasa el tipo de dato se deduce.
+<code><ins class="critic">Series</ins>(data=lista, index=indices, dtype=tipo)</code> : Devuelve un objeto de tipo Series con los valores de lista, las claves especificadas en índices y el tipo de datos indicado en tipo. Si no se pasa la lista de índices se utilizan como índices los enteros del 0 al n-1, done n es el tamaño de la serie. Si no se pasa el tipo de dato se deduce.
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Matemáticas&#39;</span><span class="p">:</span> <span class="mf">6.0</span><span class="p">,</span>  <span class="s1">&#39;Economía&#39;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s1">&#39;Programación&#39;</span><span class="p">:</span> <span class="mf">8.5</span><span class="p">})</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div></p>
-<p>Matemáticas     6.0
-Economía        4.5
-Programación    8.5
-dtype: float64</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Matemáticas     6.0
+<span class="linenos" data-linenos="2 "></span>Economía        4.5
+<span class="linenos" data-linenos="3 "></span>Programación    8.5
+<span class="linenos" data-linenos="4 "></span>dtype: float64
+</code></pre></div>
 <h3 id="atributos-de-la-clase-series"><strong> Atributos de la clase Series</strong><a class="headerlink" href="#atributos-de-la-clase-series" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><ins class="critic">s.size</ins> : Devuelve el número de elementos de la serie s. También podemos utilizar len(s).</p>
+<p><code><ins class="critic">s.size</ins></code> : Devuelve el número de elementos de la serie s. También podemos utilizar len(s).</p>
 </li>
 <li>
-<p><ins class="critic">s.index</ins> : Devuelve una lista con los nombres de las filas del DataFrame.</p>
+<p><code><ins class="critic">s.index</ins></code> : Devuelve una lista con los nombres de las filas del DataFrame.</p>
 </li>
 <li>
-<p><ins class="critic">s.dtype</ins> : Devuelve el tipo de datos de los elementos de la serie s.</p>
+<p><code><ins class="critic">s.dtype</ins></code> : Devuelve el tipo de datos de los elementos de la serie s.</p>
 </li>
 <li>
-<p><ins class="critic">s.values</ins> : Devuelve una lista con los valores asociados al índice.
+<p><code><ins class="critic">s.values</ins></code> : Devuelve una lista con los valores asociados al índice.</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="linenos" data-linenos="2 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="linenos" data-linenos="3 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 <span class="linenos" data-linenos="4 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="linenos" data-linenos="5 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="linenos" data-linenos="6 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-</code></pre></div></p>
-</li>
-</ul>
+</code></pre></div>
 <h3 id="acceso-a-elementos-de-una-serie"><strong> Acceso a elementos de una Serie</strong><a class="headerlink" href="#acceso-a-elementos-de-una-serie" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Matemáticas&#39;</span><span class="p">:</span> <span class="mf">6.0</span><span class="p">,</span>  <span class="s1">&#39;Economía&#39;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s1">&#39;Programación&#39;</span><span class="p">:</span> <span class="mf">8.5</span><span class="p">})</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="c1"># buscar por índice</span>

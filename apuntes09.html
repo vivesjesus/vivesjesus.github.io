@@ -45,6 +45,17 @@
     
       
 
+  
+
+
+  
+
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-DSTGE8QTPP"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-DSTGE8QTPP",{page_path:t.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DSTGE8QTPP"></script>
+
 
     
     
@@ -849,15 +860,16 @@ dtype: float64</p>
 <h3 id="eliminar-los-datos-desconocidos-en-una-serie"><strong> Eliminar los datos desconocidos en una Serie</strong><a class="headerlink" href="#eliminar-los-datos-desconocidos-en-una-serie" title="Permanent link">&para;</a></h3>
 <p>Los datos desconocidos se representan en Pandas por NaN y los nulos por None. Tanto unos como otros suelen ser un problema a la hora de realizar algunos análisis de datos, por lo que es habitual eliminarlos. Para eliminarlos de una serie se utiliza el siguiente método:</p>
 <ul>
-<li><ins class="critic">s.dropna()</ins>: Elimina los datos desconocidos o nulos de la serie s.
-        import pandas as pd
-        import numpy as np<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>s = pd.Series([&#39;a&#39;, &#39;b&#39;, None, &#39;c&#39;, np.NaN,  &#39;d&#39;])
-<span class="linenos" data-linenos="2 "></span>print(s)
-<span class="linenos" data-linenos="3 "></span>print()
-<span class="linenos" data-linenos="4 "></span>print(s.dropna())
-<span class="linenos" data-linenos="5 "></span>print()
-<span class="linenos" data-linenos="6 "></span># la serie es inmutable
-<span class="linenos" data-linenos="7 "></span>print(s)
+<li><ins class="critic">s.dropna()</ins>: Elimina los datos desconocidos o nulos de la serie s.<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>import pandas as pd
+<span class="linenos" data-linenos=" 2 "></span>import numpy as np
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>s = pd.Series([&#39;a&#39;, &#39;b&#39;, None, &#39;c&#39;, np.NaN,  &#39;d&#39;])
+<span class="linenos" data-linenos=" 5 "></span>print(s)
+<span class="linenos" data-linenos=" 6 "></span>print()
+<span class="linenos" data-linenos=" 7 "></span>print(s.dropna())
+<span class="linenos" data-linenos=" 8 "></span>print()
+<span class="linenos" data-linenos=" 9 "></span># la serie es inmutable
+<span class="linenos" data-linenos="10 "></span>print(s)
 </code></pre></div>
 </li>
 </ul>

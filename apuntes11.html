@@ -611,6 +611,7 @@ Leer ficheros xls en una hoja distinta de la principal:</p>
 <h2 id="ficheros-pdf-con-tika"><strong> Ficheros PDF con TIKA </strong><a class="headerlink" href="#ficheros-pdf-con-tika" title="Permanent link">&para;</a></h2>
 <p>Apache Tika es una librería que se utiliza para la detección de diferentes tipos de documentos y la extracción de contenido de varios formatos de archivo. Se instala la librería Tika con el siguiente comando:</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tika</span>
+<span class="linenos" data-linenos="2 "></span><span class="kn">from</span> <span class="nn">tika</span> <span class="n">install</span> <span class="n">parser</span>
 </code></pre></div>
 Para extraer el contenido del archivo PDF</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">parsed_pdf</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;sample.pdf&quot;</span><span class="p">)</span> 

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://vivesjesus.github.io/iaw/apuntes14.html">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>6. DATA WAREHOUSE - IAW</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">IAW</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="index.html" class="nav-link">1. INTRODUCCIÓN</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">2. IAW <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="apuntes01.html" class="dropdown-item">2.0. IAW</a>
+</li>
+                                    
+<li>
+    <a href="apuntes02.html" class="dropdown-item">2.1. PERFILES</a>
+</li>
+                                    
+<li>
+    <a href="apuntes03.html" class="dropdown-item">2.2. TIPOS DE DATOS</a>
+</li>
+                                    
+<li>
+    <a href="apuntes04.html" class="dropdown-item">2.3. FORMATO DE DATOS</a>
+</li>
+                                    
+<li>
+    <a href="apuntes05.html" class="dropdown-item">2.4. RESUMEN</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">3. VISUALIZACIÓN DE DATOS <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="apuntes06.html" class="dropdown-item">3.1. INTRODUCCIÓN</a>
+</li>
+                                    
+<li>
+    <a href="apuntes08.html" class="dropdown-item">3.2. VISUALIZACIÓN DE DATOS</a>
+</li>
+                                    
+<li>
+    <a href="apuntes07.html" class="dropdown-item">3.3. ANÁLISIS EXPLORATORIO DE DATOS</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">4. PYTHON <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="apuntes009.html" class="dropdown-item">4.1. GOOGLE COLABORATORY</a>
+</li>
+                                    
+<li>
+    <a href="apuntes09.html" class="dropdown-item">4.2. PANDAS</a>
+</li>
+                                    
+<li>
+    <a href="apuntes10.html" class="dropdown-item">4.2.1. ACCESO A FICHEROS</a>
+</li>
+                                    
+<li>
+    <a href="apuntes11.html" class="dropdown-item">4.2.2. CREAR DATAFRAMES</a>
+</li>
+                                    
+<li>
+    <a href="apuntes12.html" class="dropdown-item">4.2.3. OTRAS OPERACIONES</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="apuntes13.html" class="nav-link">5. LIMPIEZA DE DATOS</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="apuntes14.html" class="nav-link">6. DATA WAREHOUSE</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="apuntes13.html" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#data-warehouse" class="nav-link">Data Warehouse</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="data-warehouse"><strong>Data Warehouse</strong><a class="headerlink" href="#data-warehouse" title="Permanent link">&para;</a></h2>
+<p><img alt="imagen" src="imagenes/warehouse.png" /></p>
+<ul>
+<li>Es una gran base de datos, normalmente medida en gigabytes o terabytes.</li>
+<li>Es un proceso para recopilar y administrar datos de diversas fuentes para proporcionar información empresarial significativa (data warehousing).</li>
+<li>Conecta y analiza datos comerciales de fuentes heterogéneas.</li>
+<li>Es el núcleo del sistema de Business Intelligence que está diseñado para el análisis y generación de informes de datos.</li>
+<li>Es un proceso de transformar datos en información y ponerlos a disposición de los usuarios. </li>
+<li>Contiene datos de calidad como datos de clientes, empleados o ventas.</li>
+</ul>
+<p><img alt="imagen" src="imagenes/warehouse2.png" /></p>
+<h3 id="caracteristicas-de-los-data-warehouse"><strong> Características de los Data Warehouse </strong><a class="headerlink" href="#caracteristicas-de-los-data-warehouse" title="Permanent link">&para;</a></h3>
+<p><img alt="imagen" src="imagenes/Caracteristicas.PNG" /></p>
+<h3 id="comparacion-modelo-transaccional-y-analitico"><strong> Comparación modelo transaccional y analítico </strong><a class="headerlink" href="#comparacion-modelo-transaccional-y-analitico" title="Permanent link">&para;</a></h3>
+<p><img alt="imagen" src="imagenes/transaccionalyanalitica.PNG" /></p>
+<h3 id="data-mart"><strong> Data Mart </strong><a class="headerlink" href="#data-mart" title="Permanent link">&para;</a></h3>
+<p>Según Kimball, “Un Data Mart es un conjunto de datos flexible, idealmente basado en el nivel de granularidad mayor que sea posible, presentado en un modelo dimensional que es capaz de comportarse bien ante cualquier consulta del usuario. En su definición más sencilla, un data mart representa un único proceso de negocio.”</p>
+<p>Un proceso de negocio es un conjunto de tareas relacionadas lógicamente, llevadas a cabo para lograr un resultado de negocio definido.</p>
+<h3 id="data-mart-vs-data-warehouse"><strong> Data Mart VS Data Warehouse </strong><a class="headerlink" href="#data-mart-vs-data-warehouse" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>La única diferencia es en cuanto al alcance.</p>
+</li>
+<li>
+<p>Un Data Warehouse es un sistema centralizado con datos globales de la empresa y de todos sus procesos operacionales mientras que un Data Mart es un subconjunto temático de datos, orientado a un proceso o un área de negocio específica. Por ejemplo, a pedidos de clientes, a compras, a inventario de almacén, etc.</p>
+</li>
+<li>
+<p>La existencia de un Data Warehouse no descarta la existencia de Data Marts ni viceversa. Es decir, puede haber organizaciones que tengan sólo un Data Warehouse, que sólo tengan Data Marts, o que tengan un Data Warehouse y Data Marts.</p>
+</li>
+</ul>
+<h3 id="etl"><strong> ETL</strong><a class="headerlink" href="#etl" title="Permanent link">&para;</a></h3>
+<p>En muchas ocasiones, la información no pasa directamente de las fuentes al Data Mart o Data Warehouse, sino que lo hace a través de unas bases de datos intermedias, que son necesarias dada la complejidad y disparidad de las fuentes. </p>
+<p>Los datos, antes de entrar en el Data Mart o Data Warehouse, se almacenan en un área de staging y/o un ODS (Operational Data Store).</p>
+<p><img alt="imagen" src="imagenes/etlarea.PNG" /></p>
+<p>Un <strong>área de staging</strong> es un área temporal que se encuentra en el flujo de datos entre las fuentes y el Data Mart o Data Warehouse con el fin de facilitar la extracción de datos, de realizar tareas de limpieza (data cleasing) o de mejorar la calidad de los datos.</p>
+<p>Un <strong>ODS</strong> es un área que va a dar soporte a los sistemas transaccionales, desde los que se alimenta con una periodicidad muy baja, y sirve como base de datos de consulta, a la que se conectarn herramientas de <em>reporting</em> con el fin de que el sistema transaccional tenga una menor carga de trabajo.</p>
+<h3 id="metodologias"><strong> Metodologías </strong><a class="headerlink" href="#metodologias" title="Permanent link">&para;</a></h3>
+<p>Existen muchas metodologías de diseño y construcción de un Data Warehouse. Cada fabricante de software de inteligencia de negocios busca imponer una metodología con sus productos. Sin embargo, se imponen entre la mayoría dos metodologías, la de Kimball y la de Inmon.</p>
+<ul>
+<li><strong>Metodología Kimball</strong>: Ralph Kimball sigue una metodología bottom-up y una estructura desnormalizada. Se define el diseño en detalle de partes individuales para luego enlazarlas entre ellas para formar un sistema completo. Es decir, con la metodología de Kimball se van diseñando a medida, según las necesidades de los departamentos, los diferentes Data Marts, para unirlos y formar el Data Warehouse de la empresa.</li>
+</ul>
+<p><img alt="imagen" src="imagenes/kimball.PNG" /></p>
+<ul>
+<li><strong>Metodología Inmon</strong>:se caracteriza por tener un repositorio central de datos único. Se basa en la metodología top-down, que es aquella que toma decisiones partiendo de las variables más globales para ir descendiendo hasta las más específicas. Es decir, Inmon parte de un almacén de datos global del que se irán nutriendo los diferentes Data Marts, evitando así las diferentes inconsistencias que puedan existir entre diferentes departamentos.</li>
+</ul>
+<p><img alt="imagen" src="imagenes/inmon.PNG" /></p>
+<ul>
+<li><strong>Alternativa: Data Vault</strong>: es una técnica híbrida entre el modelo normalizado y el modelo dimensional donde se toman lo mejor de cada una y se solucionan sus defectos. La definición que da Dan Listedt es la siguiente:</li>
+</ul>
+<p>“Data Vault es un conjunto de tablas normalizadas orientadas al detalle, con seguimiento histórico y vinculadas de forma única, que dan soporte a una o más áreas funcionales del negocio. Se trata de un enfoque híbrido que engloba lo mejor de la tercera forma normal (3NF) y el esquema en estrella. El diseño es flexible, escalable, consistente y adaptable a las necesidades de la empresa. Se trata de un modelo de datos diseñado específicamente para satisfacer las necesidades de los almacenes de datos empresariales actuales.”</p>
+<p>Comparativa entre Inmon y Kimball:</p>
+<p><img alt="imagen" src="imagenes/comparativaKI.PNG" /></p>
+<h3 id="modelado"><strong> Modelado </strong><a class="headerlink" href="#modelado" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Esquema en estrella (star schema)</strong>: hay una única tabla central, la tabla de hechos, que contiene todas las medidas y una tabla adicional por cada una de las perspectivas desde las que queremos analizar dicha información, es decir por cada una de las dimensiones.</li>
+</ul>
+<p><img alt="imagen" src="imagenes/esquemaestrella.png" /></p>
+<ul>
+<li><strong>Esquema en copo de nieve (snowflake schema)</strong>. La diferencia es que algunas dimensiones no están relacionadas directamente con la tabla de hechos, sino que se relacionan con ella a través de otras dimensiones. También tenemos una tabla de hechos, situada en el centro, que contiene todas las medidas y una o varias tablas adicionales, con un mayor nivel de normalización.</li>
+</ul>
+<p><img alt="imagen" src="imagenes/esquemacopo.png" /></p>
+<ul>
+<li><strong>Esquema híbrido</strong>. Tiene parte en estrella y parte en copo de nieve.</li>
+</ul>
+<p><img alt="imagen" src="imagenes/hibrido.png" /></p>
+<h3 id="modelado-dimensional"><strong> Modelado Dimensional </strong><a class="headerlink" href="#modelado-dimensional" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Utilizado en la mayoría de las soluciones de BI.</li>
+<li>Es una mezcla de normalización y desnormalización, llamada Normalización Dimensional.</li>
+<li>Se utiliza tanto en el diseño de Data Marts como de Data Warehouses.</li>
+<li>
+<p>Hay dos tipos de tablas:</p>
+<ul>
+<li>
+<p>Tablas de Dimensión (Dimension Tables)</p>
+</li>
+<li>
+<p>Tablas de Hechos (Fact Tables)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="tablas-de-hechos"><strong> Tablas de Hechos </strong><a class="headerlink" href="#tablas-de-hechos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Son tablas que representan detalles del proceso de negocio a analizar, por ejemplo, las ventas, las compras, las incidencias recibidas, los pagos, los apuntes contables, los clics sobre nuestro sitio web, etc.</p>
+</li>
+<li>
+<p>Contienen datos numéricos y medidas (métricas).</p>
+</li>
+<li>
+<p>Contienen también elementos (claves externas) para contextualizar dichas medidas, como por ejemplo el producto, la fecha, el cliente, la cuenta contable, etc.</p>
+</li>
+</ul>
+<p>Elementos que las componen:</p>
+<p><strong>Clave principal</strong>: identifica de forma única cada fila.</p>
+<p><strong>Claves externas</strong>: apuntan hacia las claves principales de cada una de las dimensiones que tienen relación con dicha tabla de hechos.</p>
+<p><strong>Medidas</strong>: representan columnas que contienen datos cuantificables, numéricos, que se pueden agregar como por ejemplo, cantidad, importe, precio, margen, etc.
+Metadatos y linaje: permite obtener información adicional sobre la fila, por ejemplo, que día se incorporó al Data Warehouse, de qué origen proviene, etc.</p>
+<h3 id="tablas-de-dimensiones"><strong> Tablas de Dimensiones </strong><a class="headerlink" href="#tablas-de-dimensiones" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Las tablas de dimensiones almacenan una serie de atributos o características, por las cuales podemos agrupar, rebanar o filtrar información.</li>
+<li>Nos permiten contextualizar los hechos, agregando diferentes perspectivas de análisis.</li>
+<li>Algunas veces los atributos están organizados en jerarquías que permiten analizar los datos de forma agrupada. Por ejemplo, en una dimensión Producto podemos encontrar una jerarquía formada por los atributos Categoría, Subcategoría y Producto.</li>
+<li>Tienen una clave principal diferente que se conoce con el nombre de clave subrogada.</li>
+<li><strong>Clave subrogada</strong> es un identificador único que es asignado a cada fila de la tabla de dimensiones, en definitiva, será su clave principal.</li>
+<li><strong>Clave de negocio</strong> es una clave que actúa como primary key en nuestro origen de datos y es con la que el usuario está familiarizado, pero no puede ser clave principal en nuestra tabla de dimensiones porque se podrían producir duplicidades.</li>
+</ul>
+<h3 id="tecnica-de-modelado-dimensional"><strong> Técnica de modelado dimensional </strong><a class="headerlink" href="#tecnica-de-modelado-dimensional" title="Permanent link">&para;</a></h3>
+<p>En el libro “The datawarehouse toolkit” de Ralph Kimball, ofrece una técnica de modelado 
+que consiste en 4 pasos:</p>
+<ol>
+<li>
+<p><em>Seleccionar el proceso</em>: El primer paso sería seleccionar el proceso a modelar. ¿En qué actividades del negocio nos interesa focalizar? Los modelos de negocio son simplificaciones de la realidad que nos sirven para comprender qué está sucediendo. Si está bien definido nos permitirá responder preguntas claves de la organización.
+El o los procesos a modelar se definen de acuerdo al objetivo. Seguramente queramos modelar más de un proceso, cada uno con su tabla de hechos y dimensiones, y cada uno de ellos con sus propios objetivos e indicadores de gestión.</p>
+</li>
+<li>
+<p><em>Establecer el nivel de granularidad</em>: Una vez identificado el proceso, tenemos que conocer qué información disponemos para 
+analizarlo, definir el nivel de detalle que vamos a registrar en la tabla de hechos. 
+Por ejemplo podemos definir las ventas en por mes, por producto, o bien las ventas por día 
+por vendedor. Hay que tener en cuenta que si se define un grano más grueso (por ejemplo, ventas por 
+mes), no podrá luego consultarse las ventas por día. Por eso se recomienda utilizar una granularidad más fina, de manera de poder responder a consultas con mayor nivel de detalle.</p>
+</li>
+<li>
+<p><em>Identificar las dimensiones</em>: Definida la granularidad, se enumeran las dimensiones asociadas. Las más comunes son, 
+tiempos, lugar, responsable, sector, etc. Es muy importante nombrar las dimensiones de manera que sean simples de identificar, 
+como también así sus atributos.</p>
+</li>
+<li>
+<p><em>Identificar los hechos</em>: Los hechos son los valores numéricos asociados al proceso que queremos medir. Por ejemplo en un proceso de compras, serán la cantidad vendida y el valor unitario. En un proceso de atención de reclamos podría ser el tiempo en segundos que demoró en 
+ser atendido, el tiempo en segundos que tomó la atención, etc.</p>
+</li>
+</ol>
+<h3 id="cubos-olap"><strong> Cubos OLAP </strong><a class="headerlink" href="#cubos-olap" title="Permanent link">&para;</a></h3>
+<p><img alt="imagen" src="imagenes/olap1.png" /></p>
+<p><img alt="imagen" src="imagenes/olap2.png" /></p>
+<p><img alt="imagen" src="imagenes/olap3.png" /></p>
+<p><img alt="imagen" src="imagenes/olap4.png" /></p>
+<p><img alt="imagen" src="imagenes/olap5.png" /></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>2022-2023 Jesús Vives - Licencia CC BY-NC-SA</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
